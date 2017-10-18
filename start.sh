@@ -13,5 +13,5 @@ else
     -p 3838:3838 \
     -v $(pwd):/home/rstudio \
     -e ADD=shiny \
-    rocker/rstudio
+    fikovnik/rstudio
 fi
