@@ -9,6 +9,6 @@ RUN apt-get -y update && \
         libxml2-dev \
         texlive
 
-RUN Rscript -e "install.packages(c('devtools', 'roxygen2', 'tidyverse', 'RMySQL', 'dbplyr', 'codetools', 'testthat'))"
+RUN Rscript -e "install.packages(c('devtools', 'roxygen2', 'tidyverse', 'RMySQL', 'dbplyr', 'codetools', 'testthat', 'igraph', 'visNetwork'))"
 
 LABEL maintainer "krikava@gmail.com"
