@@ -1,4 +1,5 @@
 FROM rocker/rstudio
+LABEL maintainer "krikava@gmail.com"
 
 RUN apt-get -y update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
@@ -9,6 +10,7 @@ RUN apt-get -y update && \
         libxml2-dev \
         texlive
 
-RUN Rscript -e "install.packages(c('devtools', 'roxygen2', 'tidyverse', 'RMySQL', 'dbplyr', 'codetools', 'testthat', 'igraph', 'visNetwork'))"
+ADD r-packages.txt /r-packages.txt
 
-LABEL maintainer "krikava@gmail.com"
+RUN Rscript -e "install.packages(readLines('/r-packages.txt'))"
+RUN ADD="shiny" bash -x /etc/cont-init.d/add
