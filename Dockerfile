@@ -12,5 +12,5 @@ RUN apt-get -y update && \
 
 ADD r-packages.txt /r-packages.txt
 
-RUN Rscript -e "install.packages(readLines('/r-packages.txt'))"
+RUN Rscript -e "install.packages(readLines('/r-packages.txt'), Ncpus=16)"
 RUN ADD="shiny" bash -x /etc/cont-init.d/add
