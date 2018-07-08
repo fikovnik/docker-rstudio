@@ -23,6 +23,7 @@ dplyr
 DT
 forcats
 foreign
+fs
 ggplot2
 git2r
 glue
@@ -52,6 +53,7 @@ modelr
 munsell
 nlme
 openssl
+pbapply
 pkgconfig
 plogr
 plyr
@@ -89,18 +91,4 @@ withr
 xml2
 xtable
 yaml
-base
-compiler
 codetools
-datasets
-graphics
-grDevices
-grid
-methods
-parallel
-splines
-stats
-stats4
-tcltk
-tools
-utils
