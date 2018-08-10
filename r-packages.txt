@@ -1,4 +1,5 @@
 assertthat
+anytime
 broom
 codetools
 colorspace
@@ -6,6 +7,7 @@ curl
 tidyverse
 devtools
 digest
+data.table
 DT
 rmarkdown
 caTools

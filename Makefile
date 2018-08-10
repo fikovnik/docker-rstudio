@@ -1,7 +1,7 @@
 IMAGE := fikovnik/rstudio
 CONTAINER := rstudio
 
-.PHONY: build run
+.PHONY: build run enter stop kill rm
 
 build:
 	docker build --rm -t $(IMAGE) .
