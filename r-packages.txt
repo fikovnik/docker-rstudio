@@ -1,6 +1,8 @@
 assertthat
 anytime
 broom
+bitops
+caTools
 codetools
 colorspace
 curl
@@ -9,13 +11,13 @@ devtools
 digest
 data.table
 DT
-rmarkdown
-caTools
-bitops
 fs
-pbapply
+feather
+fst
+ggthemes
 janitor
 jsonlite
+kableExtra
 lattice
 lazyeval
 littler
@@ -35,9 +37,9 @@ pkgconfig
 plogr
 plyr
 praise
-psych
 purrr
 Rcpp
+rmarkdown
 RMySQL
 roxygen2
 shiny
@@ -45,6 +47,7 @@ stringr
 testthat
 tidyr
 visNetwork
+vroom
 whisker
 withr
 yaml
