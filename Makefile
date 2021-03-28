@@ -1,5 +1,5 @@
-IMAGE := fikovnik/rstudio
-CONTAINER := rstudio
+IMAGE := fikovnik/rstudiopro
+CONTAINER := rstudiopro
 
 .PHONY: build run enter stop kill rm
 
@@ -13,12 +13,12 @@ run:
 		docker start $(CONTAINER); \
 	else \
 		docker run \
+		  --rm \
 			--name $(CONTAINER) \
+			--privileged \
 			-d \
 			-p 8787:8787 \
-			-p 3838:3838 \
-			-v $(pwd):/home/rstudio \
-			-e ADD=shiny \
+			-e RSP_LICENSE=$$RSP_LICENSE \
 			$(IMAGE); \
 	fi
 

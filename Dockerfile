@@ -1,4 +1,4 @@
-FROM rocker/rstudio
+FROM rstudio/rstudio-server-pro
 LABEL maintainer "krikava@gmail.com"
 
 ARG CRAN_MIRROR=https://mirrors.nic.cz/R
@@ -8,13 +8,13 @@ RUN apt-get -y update && \
         zlib1g-dev \
         libssh2-1-dev \
         procps \
-        libxml2-dev \
-        texlive
+        libxml2-dev
 
 ADD r-packages.txt /r-packages.txt
 
-RUN Rscript -e "install.packages(readLines('/r-packages.txt'), Ncpus=16)"
+RUN Rscript -e "install.packages(readLines('/r-packages.txt'), repos=Sys.getenv('CRAN_MIRROR'), Ncpus=parallel::detectCores())"
 RUN Rscript -e "devtools::install_github('PRL-PRG/streamr')"
 
-# prevent Rstudio from logging me out
-RUN echo "auth-timeout-minutes=0" >> /etc/rstudio/rserver.conf
+ADD rsession.conf /etc/rstudio
+RUN echo "auth-timeout-minutes=0" >> /etc/rserver.conf && \
+    echo "auth-stay-signed-in-days=30" >> /etc/rserver.conf
