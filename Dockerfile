@@ -14,7 +14,6 @@ RUN apt-get -y update && \
 ADD r-packages.txt /r-packages.txt
 
 RUN Rscript -e "install.packages(readLines('/r-packages.txt'), Ncpus=16)"
-RUN Rscript -e "devtools::install_github('PRL-PRG/streamr')"
 
 # prevent Rstudio from logging me out
 RUN echo "auth-timeout-minutes=0" >> /etc/rstudio/rserver.conf
